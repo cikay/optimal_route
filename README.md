@@ -1,9 +1,9 @@
 
 Installation 
 
-Run the command `docker compose build` to build the app and with run via `docker compose up`
+Run the command `docker compose build` to build the app and run via `docker compose up`
 
-If It run successfully, got to the following request to get the optimal fuel stations
+If It run successfully, go to the following url to get the optimal fuel stations
 
 http://127.0.0.1:8080/route/stations/?start=12&end=13
 
