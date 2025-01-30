@@ -2,7 +2,7 @@ from route.find_optimal_route import find_optimal_stations
 from route.client import FuelStationsClient
 
 
-class OptimalFuelstationsService:
+class OptimalFuelStationsService:
     def __init__(self):
         self.client = FuelStationsClient("")
 
