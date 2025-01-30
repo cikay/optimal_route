@@ -1,0 +1,21 @@
+[tool.poetry]
+package-mode = false
+name = "spotter-test"
+version = "0.1.0"
+description = ""
+authors = ["Muzaffer Cıkay <muzaffercky@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.5"
+django = "3.2.23"
+djangorestframework = "3.11"
+requests = "^2.32.3"
+
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
