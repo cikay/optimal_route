@@ -30,7 +30,6 @@ def find_optimal_stations(route: Stations) -> dict:
 
     # Optimized: Final cost is in the last entry of dp
     final_cost = dp[num_stations][0]  # Directly access from the table.
-    final_station_index = -1
 
     final_station_index = num_stations - 1
     optimal_stations = reconstruct_path(route.station_list, dp, final_station_index)
