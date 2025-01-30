@@ -24,7 +24,7 @@ def find_optimal_stations(route: Stations) -> dict:
 
     for current_station_index in range(num_stations):
         curr_station = route.station_list[current_station_index]
-        update_dp_entry(
+        calculate_current_station_cost(
             curr_station, route.station_list, dp, current_station_index, route.distance
         )
 
@@ -88,7 +88,7 @@ C ------------------A
 """
 
 
-def update_dp_entry(
+def calculate_current_station_cost(
     curr_station: Station,
     stations: list[Station],
     dp: list[Tuple[float, int]],
