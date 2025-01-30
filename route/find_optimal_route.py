@@ -4,6 +4,7 @@ from typing import List, Dict, Tuple
 VEHICLE_RANGE = 500
 FUEL_EFFICIENCY = 10
 
+
 @dataclass
 class Station:
     address: str
@@ -17,7 +18,7 @@ class Stations:
     distance: float
 
 
-def find_optimal_stops(route: Stations) -> dict:
+def find_optimal_stations(route: Stations) -> dict:
     num_stations = len(route.station_list)
     dp = initialize_dp(num_stations)
 
@@ -32,12 +33,13 @@ def find_optimal_stops(route: Stations) -> dict:
     final_station_index = -1
 
     final_station_index = num_stations - 1
-    optimal_stops = reconstruct_path(route.station_list, dp, final_station_index)
+    optimal_stations = reconstruct_path(route.station_list, dp, final_station_index)
     return {
         "cost": final_cost,
-        "stations": optimal_stops,
+        "stations": optimal_stations,
         "distance": route.distance,
     }
+
 
 def calculate_fuel_cost(distance: float, price: float) -> float:
     """Calculate the fuel cost for a given distance and price."""
@@ -132,15 +134,15 @@ def reconstruct_path(
     stations: list[Station], dp: List[Tuple[float, int]], final_station_index: int
 ) -> List[Dict]:
     """Reconstruct the optimal path from the dp table."""
-    optimal_stops = []
+    optimal_stations = []
     current_index = final_station_index
 
     while current_index != -1:
-        optimal_stops.append(stations[current_index])
+        optimal_stations.append(stations[current_index])
         current_index = dp[current_index + 1][1]
 
-    optimal_stops.reverse()
-    return optimal_stops
+    optimal_stations.reverse()
+    return optimal_stations
 
 
 # Example usage:
