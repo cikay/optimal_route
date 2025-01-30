@@ -31,18 +31,13 @@ def find_optimal_stops(route: Stations) -> dict:
     final_cost = dp[num_stations][0]  # Directly access from the table.
     final_station_index = -1
 
-    # Find the last station index.
-    for i in range(num_stations):
-        if route.distance - route.station_list[i].distance <= VEHICLE_RANGE:
-            final_station_index = i
-
+    final_station_index = num_stations - 1
     optimal_stops = reconstruct_path(route.station_list, dp, final_station_index)
     return {
         "cost": final_cost,
         "stations": optimal_stops,
         "distance": route.distance,
     }
-
 
 def calculate_fuel_cost(distance: float, price: float) -> float:
     """Calculate the fuel cost for a given distance and price."""
